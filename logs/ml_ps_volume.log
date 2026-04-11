@@ -1,0 +1,122 @@
+[2026-04-10 21:55:55,378] INFO: ============================================================
+[2026-04-10 21:55:55,379] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-10 21:55:55,382] INFO: ============================================================
+[2026-04-10 21:55:55,382] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-10 21:55:58,673] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-10 21:55:58,789] INFO: Modelo registry id: 1
+[2026-04-10 21:55:58,789] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-10 21:55:59,320] INFO: Histórico carregado: 1000 dias (2023-07-15 a 2026-04-09)
+[2026-04-10 21:55:59,328] INFO: Buscando clima de 2023-07-15 a 2026-04-16...
+[2026-04-10 21:56:01,094] ERROR: ERRO FATAL: HTTPError: 400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=-15.82&longitude=-48.11&daily=temperature_2m_max%2Ctemperature_2m_min%2Ctemperature_2m_mean%2Cprecipitation_sum%2Crain_sum%2Cprecipitation_hours%2Cwind_speed_10m_max%2Crelative_humidity_2m_mean&timezone=America%2FSao_Paulo&start_date=2023-07-15&end_date=2026-04-16&past_days=92
+Traceback (most recent call last):
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 291, in main
+    clima = buscar_clima_completo(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 145, in buscar_clima_completo
+    response.raise_for_status()
+  File "C:\ml_workspace\venv_ml\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=-15.82&longitude=-48.11&daily=temperature_2m_max%2Ctemperature_2m_min%2Ctemperature_2m_mean%2Cprecipitation_sum%2Crain_sum%2Cprecipitation_hours%2Cwind_speed_10m_max%2Crelative_humidity_2m_mean&timezone=America%2FSao_Paulo&start_date=2023-07-15&end_date=2026-04-16&past_days=92
+[2026-04-10 21:58:52,994] INFO: ============================================================
+[2026-04-10 21:58:52,995] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-10 21:58:52,996] INFO: ============================================================
+[2026-04-10 21:58:52,996] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-10 21:58:54,617] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-10 21:58:54,689] INFO: Modelo registry id: 1
+[2026-04-10 21:58:54,690] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-10 21:58:55,045] INFO: Histórico carregado: 1000 dias (2023-07-15 a 2026-04-09)
+[2026-04-10 21:58:55,048] INFO: Buscando clima HISTÓRICO de 2023-07-15 a 2026-04-09...
+[2026-04-10 21:58:56,796] INFO:   Histórico: 1000 dias recebidos
+[2026-04-10 21:58:56,796] INFO: Buscando clima FORECAST de 2026-04-10 a 2026-04-16...
+[2026-04-10 21:58:57,917] INFO:   Forecast: 7 dias recebidos
+[2026-04-10 21:58:57,929] INFO: Clima total combinado: 1007 dias (2023-07-15 a 2026-04-16)
+[2026-04-10 21:58:58,208] ERROR: ERRO FATAL: ValueError: pandas dtypes must be int, float or bool.
+Fields with bad pandas dtypes: lag_1d: object, lag_2d: object, lag_7d: object, lag_14d: object
+Traceback (most recent call last):
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 334, in main
+    predicoes = gerar_predicoes(model, df_features, mae_modelo)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 212, in gerar_predicoes
+    predicoes = model.predict(X)
+                ^^^^^^^^^^^^^^^^
+  File "C:\ml_workspace\venv_ml\Lib\site-packages\lightgbm\basic.py", line 4748, in predict
+    return predictor.predict(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\ml_workspace\venv_ml\Lib\site-packages\lightgbm\basic.py", line 1139, in predict
+    data = _data_from_pandas(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\ml_workspace\venv_ml\Lib\site-packages\lightgbm\basic.py", line 848, in _data_from_pandas
+    _pandas_to_numpy(data, target_dtype=target_dtype),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ml_workspace\venv_ml\Lib\site-packages\lightgbm\basic.py", line 794, in _pandas_to_numpy
+    _check_for_bad_pandas_dtypes(data.dtypes)
+  File "C:\ml_workspace\venv_ml\Lib\site-packages\lightgbm\basic.py", line 784, in _check_for_bad_pandas_dtypes
+    raise ValueError(
+ValueError: pandas dtypes must be int, float or bool.
+Fields with bad pandas dtypes: lag_1d: object, lag_2d: object, lag_7d: object, lag_14d: object
+[2026-04-10 22:43:43,249] INFO: ============================================================
+[2026-04-10 22:43:43,250] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-10 22:43:43,250] INFO: ============================================================
+[2026-04-10 22:43:43,251] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-10 22:43:44,913] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-10 22:43:44,983] INFO: Modelo registry id: 1
+[2026-04-10 22:43:44,983] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-10 22:43:45,222] INFO: Histórico carregado: 1000 dias (2023-07-15 a 2026-04-09)
+[2026-04-10 22:43:45,225] INFO: Buscando clima HISTÓRICO de 2023-07-15 a 2026-04-09...
+[2026-04-10 22:43:46,731] INFO:   Histórico: 1000 dias recebidos
+[2026-04-10 22:43:46,732] INFO: Buscando clima FORECAST de 2026-04-10 a 2026-04-16...
+[2026-04-10 22:43:47,802] INFO:   Forecast: 7 dias recebidos
+[2026-04-10 22:43:47,809] INFO: Clima total combinado: 1007 dias (2023-07-15 a 2026-04-16)
+[2026-04-10 22:43:47,994] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-10 22:43:48,005] ERROR: ERRO FATAL: InvalidTextRepresentation: invalid input syntax for type json
+LINE 7: ..., 160.05, 145.93, 174.17, 1, 'ps_volume', 'v1.0', '{"ano": 2...
+                                                             ^
+DETAIL:  Token "NaN" is invalid.
+CONTEXT:  JSON data, line 1: ...de_media": 77.0, "vento_max": 17.1, "lag_1d": NaN...
+Traceback (most recent call last):
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 344, in main
+    gravar_predicoes(conn, modelo_id, MODELO_NOME, MODELO_VERSAO, predicoes)
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 240, in gravar_predicoes
+    cursor.execute("""
+psycopg2.errors.InvalidTextRepresentation: invalid input syntax for type json
+LINE 7: ..., 160.05, 145.93, 174.17, 1, 'ps_volume', 'v1.0', '{"ano": 2...
+                                                             ^
+DETAIL:  Token "NaN" is invalid.
+CONTEXT:  JSON data, line 1: ...de_media": 77.0, "vento_max": 17.1, "lag_1d": NaN...
+
+[2026-04-10 22:46:47,937] INFO: ============================================================
+[2026-04-10 22:46:47,938] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-10 22:46:47,939] INFO: ============================================================
+[2026-04-10 22:46:47,939] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-10 22:46:49,541] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-10 22:46:49,614] INFO: Modelo registry id: 1
+[2026-04-10 22:46:49,614] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-10 22:46:49,835] INFO: Histórico carregado: 1000 dias (2023-07-15 a 2026-04-09)
+[2026-04-10 22:46:49,837] INFO: Buscando clima HISTÓRICO de 2023-07-15 a 2026-04-09...
+[2026-04-10 22:46:51,160] INFO:   Histórico: 1000 dias recebidos
+[2026-04-10 22:46:51,160] INFO: Buscando clima FORECAST de 2026-04-10 a 2026-04-16...
+[2026-04-10 22:46:52,049] INFO:   Forecast: 7 dias recebidos
+[2026-04-10 22:46:52,055] INFO: Clima total combinado: 1007 dias (2023-07-15 a 2026-04-16)
+[2026-04-10 22:46:52,206] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-10 22:46:52,223] INFO: 7 predições gravadas
+[2026-04-10 22:46:52,223] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-10 22:46:52,229] INFO: 0 predições atualizadas com valor realizado
+[2026-04-10 22:46:52,229] INFO: ============================================================
+[2026-04-10 22:46:52,229] INFO: WORKER FINALIZADO — duração: 4.3s
+[2026-04-10 22:46:52,230] INFO: ============================================================
+[2026-04-10 22:51:15,954] INFO: ============================================================
+[2026-04-10 22:51:15,955] INFO: ML PS VOLUME SERVICE — INÍCIO
+[2026-04-10 22:51:15,956] INFO: Agendamento: diariamente às 04:30
+[2026-04-10 22:51:15,957] INFO: ============================================================
+[2026-04-10 22:51:15,958] INFO: Próxima execução agendada: 2026-04-11 04:30:00
+[2026-04-10 22:57:57,670] INFO: ============================================================
+[2026-04-10 22:57:57,670] INFO: ML PS VOLUME SERVICE — INÍCIO
+[2026-04-10 22:57:57,670] INFO: Agendamento: diariamente às 04:30
+[2026-04-10 22:57:57,670] INFO: ============================================================
+[2026-04-10 22:57:57,671] INFO: Próxima execução agendada: 2026-04-11 04:30:00
+[2026-04-10 22:58:29,322] INFO: Serviço interrompido manualmente (Ctrl+C)
+[2026-04-10 22:58:33,958] INFO: ============================================================
+[2026-04-10 22:58:33,958] INFO: ML PS VOLUME SERVICE — INÍCIO
+[2026-04-10 22:58:33,959] INFO: Agendamento: diariamente às 04:30
+[2026-04-10 22:58:33,960] INFO: ============================================================
+[2026-04-10 22:58:33,960] INFO: Próxima execução agendada: 2026-04-11 04:30:00
