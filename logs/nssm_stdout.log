@@ -9,3 +9,90 @@
 [2026-04-10 22:58:33,959] INFO: Agendamento: diariamente às 04:30
 [2026-04-10 22:58:33,960] INFO: ============================================================
 [2026-04-10 22:58:33,960] INFO: Próxima execução agendada: 2026-04-11 04:30:00
+[2026-04-11 04:30:36,382] INFO: >>> Disparando execução agendada do worker ML PS Volume
+[2026-04-11 04:30:36,382] INFO: ============================================================
+[2026-04-11 04:30:36,382] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-11 04:30:36,383] INFO: ============================================================
+[2026-04-11 04:30:36,383] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-11 04:30:38,258] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-11 04:30:38,331] INFO: Modelo registry id: 1
+[2026-04-11 04:30:38,331] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-11 04:30:38,582] INFO: Histórico carregado: 1001 dias (2023-07-15 a 2026-04-10)
+[2026-04-11 04:30:38,584] INFO: Buscando clima HISTÓRICO de 2023-07-15 a 2026-04-10...
+[2026-04-11 04:30:39,950] INFO:   Histórico: 1001 dias recebidos
+[2026-04-11 04:30:39,950] INFO: Buscando clima FORECAST de 2026-04-11 a 2026-04-17...
+[2026-04-11 04:30:40,842] INFO:   Forecast: 7 dias recebidos
+[2026-04-11 04:30:40,846] INFO: Clima total combinado: 1008 dias (2023-07-15 a 2026-04-17)
+[2026-04-11 04:30:41,015] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-11 04:30:41,031] INFO: 7 predições gravadas
+[2026-04-11 04:30:41,031] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-11 04:30:41,114] ERROR: ERRO FATAL: NumericValueOutOfRange: numeric field overflow
+DETAIL:  A field with precision 6, scale 3 must round to an absolute value less than 10^3.
+Traceback (most recent call last):
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 357, in main
+    atualizar_valores_realizados(conn)
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 276, in atualizar_valores_realizados
+    cursor.execute("""
+psycopg2.errors.NumericValueOutOfRange: numeric field overflow
+DETAIL:  A field with precision 6, scale 3 must round to an absolute value less than 10^3.
+
+[2026-04-11 04:30:41,115] ERROR: >>> Worker terminou com SystemExit: 1
+[2026-04-11 10:14:08,067] INFO: Serviço interrompido manualmente (Ctrl+C)
+[2026-04-11 10:14:39,568] INFO: ============================================================
+[2026-04-11 10:14:39,568] INFO: ML PS VOLUME SERVICE — INÍCIO
+[2026-04-11 10:14:39,568] INFO: Agendamento: diariamente às 04:30
+[2026-04-11 10:14:39,569] INFO: ============================================================
+[2026-04-11 10:14:39,569] INFO: Próxima execução agendada: 2026-04-12 04:30:00
+[2026-04-12 04:30:46,512] INFO: >>> Disparando execução agendada do worker ML PS Volume
+[2026-04-12 04:30:46,521] INFO: ============================================================
+[2026-04-12 04:30:46,522] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-12 04:30:46,522] INFO: ============================================================
+[2026-04-12 04:30:46,524] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-12 04:30:48,683] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-12 04:30:48,770] INFO: Modelo registry id: 1
+[2026-04-12 04:30:48,770] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-12 04:30:49,023] INFO: Histórico carregado: 1001 dias (2023-07-16 a 2026-04-11)
+[2026-04-12 04:30:49,025] INFO: Buscando clima HISTÓRICO de 2023-07-16 a 2026-04-11...
+[2026-04-12 04:30:50,420] INFO:   Histórico: 1001 dias recebidos
+[2026-04-12 04:30:50,421] INFO: Buscando clima FORECAST de 2026-04-12 a 2026-04-18...
+[2026-04-12 04:30:51,472] INFO:   Forecast: 7 dias recebidos
+[2026-04-12 04:30:51,477] INFO: Clima total combinado: 1008 dias (2023-07-16 a 2026-04-18)
+[2026-04-12 04:30:51,626] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-12 04:30:51,633] ERROR: ERRO FATAL: UniqueViolation: duplicate key value violates unique constraint "uk_predicao_alvo_horizonte_modelo"
+DETAIL:  Key (dt_alvo, horizonte_dias, modelo_id)=(2026-04-12, 1, 1) already exists.
+Traceback (most recent call last):
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 357, in main
+    df_completo.index.min().date(),
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 250, in gravar_predicoes
+    INSERT INTO public.ml_ps_predicoes (
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uk_predicao_alvo_horizonte_modelo"
+DETAIL:  Key (dt_alvo, horizonte_dias, modelo_id)=(2026-04-12, 1, 1) already exists.
+
+[2026-04-12 04:30:51,634] ERROR: >>> Worker terminou com SystemExit: 1
+[2026-04-13 04:30:59,859] INFO: >>> Disparando execução agendada do worker ML PS Volume
+[2026-04-13 04:30:59,859] INFO: ============================================================
+[2026-04-13 04:30:59,859] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-13 04:30:59,860] INFO: ============================================================
+[2026-04-13 04:30:59,860] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-13 04:30:59,866] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-13 04:30:59,944] INFO: Modelo registry id: 1
+[2026-04-13 04:30:59,945] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-13 04:31:00,122] INFO: Histórico carregado: 1001 dias (2023-07-17 a 2026-04-12)
+[2026-04-13 04:31:00,124] INFO: Buscando clima HISTÓRICO de 2023-07-17 a 2026-04-12...
+[2026-04-13 04:31:01,675] INFO:   Histórico: 1001 dias recebidos
+[2026-04-13 04:31:01,676] INFO: Buscando clima FORECAST de 2026-04-13 a 2026-04-19...
+[2026-04-13 04:31:02,666] INFO:   Forecast: 7 dias recebidos
+[2026-04-13 04:31:02,670] INFO: Clima total combinado: 1008 dias (2023-07-17 a 2026-04-19)
+[2026-04-13 04:31:02,704] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-13 04:31:02,715] ERROR: ERRO FATAL: UniqueViolation: duplicate key value violates unique constraint "uk_predicao_alvo_horizonte_modelo"
+DETAIL:  Key (dt_alvo, horizonte_dias, modelo_id)=(2026-04-13, 1, 1) already exists.
+Traceback (most recent call last):
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 357, in main
+    df_completo.index.min().date(),
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 250, in gravar_predicoes
+    INSERT INTO public.ml_ps_predicoes (
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uk_predicao_alvo_horizonte_modelo"
+DETAIL:  Key (dt_alvo, horizonte_dias, modelo_id)=(2026-04-13, 1, 1) already exists.
+
+[2026-04-13 04:31:02,716] ERROR: >>> Worker terminou com SystemExit: 1
+[2026-04-13 16:23:24,364] INFO: Serviço interrompido manualmente (Ctrl+C)

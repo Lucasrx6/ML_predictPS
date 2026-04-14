@@ -2,6 +2,9 @@
 Feature engineering compartilhado entre treino e inferência.
 ATENÇÃO: este módulo é importado pelo worker E deve ser usado em qualquer
 retreino futuro. Treino e inferência precisam usar o MESMO código.
+
+Versão atual: compatível com modelo ps_volume v2.0
+Mudança v1 → v2: adicionada flag_clinica_removida (Cardiologia removida em 20/01/2026)
 """
 import numpy as np
 import pandas as pd
@@ -9,7 +12,21 @@ import holidays
 from datetime import timedelta
 
 
-# Lista de features na ordem exata em que o modelo foi treinado
+# =============================================================================
+# CONSTANTES DE EVENTOS
+# =============================================================================
+# Primeiro dia em que a clinica esteve fora do fluxo do PS (21/01/2026)
+DATA_REMOCAO_CARDIOLOGIA = '2026-01-21'
+
+# Janela do surto de dengue de 2024
+SURTO_DENGUE_INICIO = '2023-12-15'
+SURTO_DENGUE_FIM = '2024-04-15'
+
+
+# =============================================================================
+# ORDEM DAS FEATURES (deve bater EXATAMENTE com o treino do modelo v2)
+# =============================================================================
+
 FEATURES_ORDER = [
     # Calendário
     'ano', 'mes', 'dia_mes', 'dia_semana', 'dia_ano', 'semana_ano', 'trimestre',
@@ -17,8 +34,9 @@ FEATURES_ORDER = [
     'dia_semana_sin', 'dia_semana_cos', 'mes_sin', 'mes_cos',
     # Feriados
     'is_feriado', 'is_vespera_feriado', 'is_pos_feriado',
-    # Evento especial
+    # Eventos especiais
     'flag_surto_dengue_2024',
+    'flag_clinica_removida',
     # Clima
     'temp_max', 'temp_min', 'temp_media',
     'precipitacao_mm', 'chuva_mm', 'horas_chuva',
@@ -72,7 +90,20 @@ def adicionar_flag_surto(df):
     """Marca o período do surto de dengue 2024."""
     df = df.copy()
     df['flag_surto_dengue_2024'] = (
-        (df.index >= '2023-12-15') & (df.index <= '2024-04-15')
+        (df.index >= SURTO_DENGUE_INICIO) & (df.index <= SURTO_DENGUE_FIM)
+    ).astype(int)
+    return df
+
+
+def adicionar_flag_clinica_removida(df):
+    """
+    Marca dias a partir da remoção da Cardiologia do fluxo do PS.
+    0 = antes da remoção (Cardiologia no fluxo)
+    1 = a partir de DATA_REMOCAO_CARDIOLOGIA (Cardiologia fora do fluxo)
+    """
+    df = df.copy()
+    df['flag_clinica_removida'] = (
+        df.index >= DATA_REMOCAO_CARDIOLOGIA
     ).astype(int)
     return df
 
@@ -102,12 +133,13 @@ def construir_features_completas(df_chegadas, df_clima):
         df_clima:    DataFrame indexado por data com colunas climáticas
 
     Retorna:
-        DataFrame com todas as 33 features na ordem correta
+        DataFrame com todas as 34 features na ordem correta (FEATURES_ORDER).
     """
     df = df_chegadas.copy()
     df = adicionar_features_calendario(df)
     df = adicionar_features_feriados(df)
     df = adicionar_flag_surto(df)
+    df = adicionar_flag_clinica_removida(df)
     df = adicionar_lags(df)
     df = df.join(df_clima, how='left')
     return df

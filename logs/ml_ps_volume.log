@@ -120,3 +120,325 @@ CONTEXT:  JSON data, line 1: ...de_media": 77.0, "vento_max": 17.1, "lag_1d": Na
 [2026-04-10 22:58:33,959] INFO: Agendamento: diariamente às 04:30
 [2026-04-10 22:58:33,960] INFO: ============================================================
 [2026-04-10 22:58:33,960] INFO: Próxima execução agendada: 2026-04-11 04:30:00
+[2026-04-11 04:30:18,538] INFO: >>> Disparando execução agendada do worker ML PS Volume
+[2026-04-11 04:30:18,539] INFO: ============================================================
+[2026-04-11 04:30:18,540] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-11 04:30:18,540] INFO: ============================================================
+[2026-04-11 04:30:18,540] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-11 04:30:20,400] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-11 04:30:20,470] INFO: Modelo registry id: 1
+[2026-04-11 04:30:20,471] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-11 04:30:20,692] INFO: Histórico carregado: 1001 dias (2023-07-15 a 2026-04-10)
+[2026-04-11 04:30:20,694] INFO: Buscando clima HISTÓRICO de 2023-07-15 a 2026-04-10...
+[2026-04-11 04:30:22,406] INFO:   Histórico: 1001 dias recebidos
+[2026-04-11 04:30:22,409] INFO: Buscando clima FORECAST de 2026-04-11 a 2026-04-17...
+[2026-04-11 04:30:23,694] INFO:   Forecast: 7 dias recebidos
+[2026-04-11 04:30:23,722] INFO: Clima total combinado: 1008 dias (2023-07-15 a 2026-04-17)
+[2026-04-11 04:30:24,032] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-11 04:30:24,042] INFO: 7 predições gravadas
+[2026-04-11 04:30:24,043] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-11 04:30:24,130] ERROR: ERRO FATAL: NumericValueOutOfRange: numeric field overflow
+DETAIL:  A field with precision 6, scale 3 must round to an absolute value less than 10^3.
+Traceback (most recent call last):
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 357, in main
+    atualizar_valores_realizados(conn)
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 276, in atualizar_valores_realizados
+    cursor.execute("""
+psycopg2.errors.NumericValueOutOfRange: numeric field overflow
+DETAIL:  A field with precision 6, scale 3 must round to an absolute value less than 10^3.
+
+[2026-04-11 04:30:24,132] ERROR: >>> Worker terminou com SystemExit: 1
+[2026-04-11 04:30:36,382] INFO: >>> Disparando execução agendada do worker ML PS Volume
+[2026-04-11 04:30:36,382] INFO: ============================================================
+[2026-04-11 04:30:36,382] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-11 04:30:36,383] INFO: ============================================================
+[2026-04-11 04:30:36,383] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-11 04:30:38,258] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-11 04:30:38,331] INFO: Modelo registry id: 1
+[2026-04-11 04:30:38,331] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-11 04:30:38,582] INFO: Histórico carregado: 1001 dias (2023-07-15 a 2026-04-10)
+[2026-04-11 04:30:38,584] INFO: Buscando clima HISTÓRICO de 2023-07-15 a 2026-04-10...
+[2026-04-11 04:30:39,950] INFO:   Histórico: 1001 dias recebidos
+[2026-04-11 04:30:39,950] INFO: Buscando clima FORECAST de 2026-04-11 a 2026-04-17...
+[2026-04-11 04:30:40,842] INFO:   Forecast: 7 dias recebidos
+[2026-04-11 04:30:40,846] INFO: Clima total combinado: 1008 dias (2023-07-15 a 2026-04-17)
+[2026-04-11 04:30:41,015] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-11 04:30:41,031] INFO: 7 predições gravadas
+[2026-04-11 04:30:41,031] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-11 04:30:41,114] ERROR: ERRO FATAL: NumericValueOutOfRange: numeric field overflow
+DETAIL:  A field with precision 6, scale 3 must round to an absolute value less than 10^3.
+Traceback (most recent call last):
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 357, in main
+    atualizar_valores_realizados(conn)
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 276, in atualizar_valores_realizados
+    cursor.execute("""
+psycopg2.errors.NumericValueOutOfRange: numeric field overflow
+DETAIL:  A field with precision 6, scale 3 must round to an absolute value less than 10^3.
+
+[2026-04-11 04:30:41,115] ERROR: >>> Worker terminou com SystemExit: 1
+[2026-04-11 10:04:38,417] INFO: Serviço interrompido manualmente (Ctrl+C)
+[2026-04-11 10:04:43,701] INFO: ============================================================
+[2026-04-11 10:04:43,701] INFO: ML PS VOLUME SERVICE — INÍCIO
+[2026-04-11 10:04:43,702] INFO: Agendamento: diariamente às 04:30
+[2026-04-11 10:04:43,702] INFO: ============================================================
+[2026-04-11 10:04:43,703] INFO: Próxima execução agendada: 2026-04-12 04:30:00
+[2026-04-11 10:13:11,216] INFO: Serviço interrompido manualmente (Ctrl+C)
+[2026-04-11 10:14:08,067] INFO: Serviço interrompido manualmente (Ctrl+C)
+[2026-04-11 10:14:21,309] INFO: ============================================================
+[2026-04-11 10:14:21,310] INFO: ML PS VOLUME SERVICE — INÍCIO
+[2026-04-11 10:14:21,311] INFO: Agendamento: diariamente às 04:30
+[2026-04-11 10:14:21,311] INFO: ============================================================
+[2026-04-11 10:14:21,312] INFO: Próxima execução agendada: 2026-04-12 04:30:00
+[2026-04-11 10:14:39,568] INFO: ============================================================
+[2026-04-11 10:14:39,568] INFO: ML PS VOLUME SERVICE — INÍCIO
+[2026-04-11 10:14:39,568] INFO: Agendamento: diariamente às 04:30
+[2026-04-11 10:14:39,569] INFO: ============================================================
+[2026-04-11 10:14:39,569] INFO: Próxima execução agendada: 2026-04-12 04:30:00
+[2026-04-11 10:15:59,305] INFO: Serviço interrompido manualmente (Ctrl+C)
+[2026-04-11 10:16:09,425] INFO: ============================================================
+[2026-04-11 10:16:09,426] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-11 10:16:09,426] INFO: ============================================================
+[2026-04-11 10:16:09,426] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-11 10:16:11,044] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-11 10:16:11,117] INFO: Modelo registry id: 1
+[2026-04-11 10:16:11,117] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-11 10:16:11,373] INFO: Histórico carregado: 1000 dias (2023-07-16 a 2026-04-10)
+[2026-04-11 10:16:11,377] INFO: Buscando clima HISTÓRICO de 2023-07-16 a 2026-04-10...
+[2026-04-11 10:16:12,985] INFO:   Histórico: 1000 dias recebidos
+[2026-04-11 10:16:12,989] INFO: Buscando clima FORECAST de 2026-04-11 a 2026-04-17...
+[2026-04-11 10:16:13,944] INFO:   Forecast: 7 dias recebidos
+[2026-04-11 10:16:13,949] INFO: Clima total combinado: 1007 dias (2023-07-16 a 2026-04-17)
+[2026-04-11 10:16:14,151] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-11 10:16:14,166] INFO: 7 predições gravadas
+[2026-04-11 10:16:14,167] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-11 10:16:14,255] INFO: 1 predições atualizadas com valor realizado
+[2026-04-11 10:16:14,255] INFO: ============================================================
+[2026-04-11 10:16:14,257] INFO: WORKER FINALIZADO — duração: 4.8s
+[2026-04-11 10:16:14,257] INFO: ============================================================
+[2026-04-11 10:16:20,109] INFO: ============================================================
+[2026-04-11 10:16:20,109] INFO: ML PS VOLUME SERVICE — INÍCIO
+[2026-04-11 10:16:20,110] INFO: Agendamento: diariamente às 04:30
+[2026-04-11 10:16:20,111] INFO: ============================================================
+[2026-04-11 10:16:20,111] INFO: Próxima execução agendada: 2026-04-12 04:30:00
+[2026-04-11 10:20:10,185] INFO: Serviço interrompido manualmente (Ctrl+C)
+[2026-04-11 10:20:18,358] INFO: ============================================================
+[2026-04-11 10:20:18,358] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-11 10:20:18,360] INFO: ============================================================
+[2026-04-11 10:20:18,360] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-11 10:20:19,872] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-11 10:20:19,940] INFO: Modelo registry id: 1
+[2026-04-11 10:20:19,941] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-11 10:20:20,157] INFO: Histórico carregado: 1000 dias (2023-07-16 a 2026-04-10)
+[2026-04-11 10:20:20,159] INFO: Buscando clima HISTÓRICO de 2023-07-16 a 2026-04-10...
+[2026-04-11 10:20:21,464] INFO:   Histórico: 1000 dias recebidos
+[2026-04-11 10:20:21,464] INFO: Buscando clima FORECAST de 2026-04-11 a 2026-04-17...
+[2026-04-11 10:20:22,378] INFO:   Forecast: 7 dias recebidos
+[2026-04-11 10:20:22,384] INFO: Clima total combinado: 1007 dias (2023-07-16 a 2026-04-17)
+[2026-04-11 10:20:22,551] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-11 10:20:22,569] INFO: 7 predições gravadas/atualizadas
+[2026-04-11 10:20:22,570] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-11 10:20:22,575] INFO: 0 predições atualizadas com valor realizado
+[2026-04-11 10:20:22,575] INFO: ============================================================
+[2026-04-11 10:20:22,576] INFO: WORKER FINALIZADO — duração: 4.2s
+[2026-04-11 10:20:22,577] INFO: ============================================================
+[2026-04-11 10:20:28,553] INFO: ============================================================
+[2026-04-11 10:20:28,553] INFO: ML PS VOLUME SERVICE — INÍCIO
+[2026-04-11 10:20:28,555] INFO: Agendamento: diariamente às 04:30
+[2026-04-11 10:20:28,556] INFO: ============================================================
+[2026-04-11 10:20:28,556] INFO: Próxima execução agendada: 2026-04-12 04:30:00
+[2026-04-12 04:30:35,803] INFO: >>> Disparando execução agendada do worker ML PS Volume
+[2026-04-12 04:30:35,809] INFO: ============================================================
+[2026-04-12 04:30:35,811] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-12 04:30:35,811] INFO: ============================================================
+[2026-04-12 04:30:35,813] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-12 04:30:38,753] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-12 04:30:38,855] INFO: Modelo registry id: 1
+[2026-04-12 04:30:38,855] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-12 04:30:39,162] INFO: Histórico carregado: 1001 dias (2023-07-16 a 2026-04-11)
+[2026-04-12 04:30:39,164] INFO: Buscando clima HISTÓRICO de 2023-07-16 a 2026-04-11...
+[2026-04-12 04:30:41,346] INFO:   Histórico: 1001 dias recebidos
+[2026-04-12 04:30:41,347] INFO: Buscando clima FORECAST de 2026-04-12 a 2026-04-18...
+[2026-04-12 04:30:42,435] INFO:   Forecast: 7 dias recebidos
+[2026-04-12 04:30:42,441] INFO: Clima total combinado: 1008 dias (2023-07-16 a 2026-04-18)
+[2026-04-12 04:30:42,875] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-12 04:30:42,886] INFO: 7 predições gravadas/atualizadas
+[2026-04-12 04:30:42,887] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-12 04:30:42,980] INFO: 2 predições atualizadas com valor realizado
+[2026-04-12 04:30:42,981] INFO: ============================================================
+[2026-04-12 04:30:42,982] INFO: WORKER FINALIZADO — duração: 7.2s
+[2026-04-12 04:30:42,983] INFO: ============================================================
+[2026-04-12 04:30:42,983] INFO: >>> Execução agendada concluída com sucesso
+[2026-04-12 04:30:46,512] INFO: >>> Disparando execução agendada do worker ML PS Volume
+[2026-04-12 04:30:46,521] INFO: ============================================================
+[2026-04-12 04:30:46,522] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-12 04:30:46,522] INFO: ============================================================
+[2026-04-12 04:30:46,524] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-12 04:30:48,683] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-12 04:30:48,770] INFO: Modelo registry id: 1
+[2026-04-12 04:30:48,770] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-12 04:30:49,023] INFO: Histórico carregado: 1001 dias (2023-07-16 a 2026-04-11)
+[2026-04-12 04:30:49,025] INFO: Buscando clima HISTÓRICO de 2023-07-16 a 2026-04-11...
+[2026-04-12 04:30:50,420] INFO:   Histórico: 1001 dias recebidos
+[2026-04-12 04:30:50,421] INFO: Buscando clima FORECAST de 2026-04-12 a 2026-04-18...
+[2026-04-12 04:30:51,472] INFO:   Forecast: 7 dias recebidos
+[2026-04-12 04:30:51,477] INFO: Clima total combinado: 1008 dias (2023-07-16 a 2026-04-18)
+[2026-04-12 04:30:51,626] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-12 04:30:51,633] ERROR: ERRO FATAL: UniqueViolation: duplicate key value violates unique constraint "uk_predicao_alvo_horizonte_modelo"
+DETAIL:  Key (dt_alvo, horizonte_dias, modelo_id)=(2026-04-12, 1, 1) already exists.
+Traceback (most recent call last):
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 357, in main
+    df_completo.index.min().date(),
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 250, in gravar_predicoes
+    INSERT INTO public.ml_ps_predicoes (
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uk_predicao_alvo_horizonte_modelo"
+DETAIL:  Key (dt_alvo, horizonte_dias, modelo_id)=(2026-04-12, 1, 1) already exists.
+
+[2026-04-12 04:30:51,634] ERROR: >>> Worker terminou com SystemExit: 1
+[2026-04-13 04:30:54,475] INFO: >>> Disparando execução agendada do worker ML PS Volume
+[2026-04-13 04:30:54,475] INFO: ============================================================
+[2026-04-13 04:30:54,477] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-13 04:30:54,478] INFO: ============================================================
+[2026-04-13 04:30:54,478] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-13 04:30:54,482] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-13 04:30:54,559] INFO: Modelo registry id: 1
+[2026-04-13 04:30:54,559] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-13 04:30:54,752] INFO: Histórico carregado: 1001 dias (2023-07-17 a 2026-04-12)
+[2026-04-13 04:30:54,754] INFO: Buscando clima HISTÓRICO de 2023-07-17 a 2026-04-12...
+[2026-04-13 04:30:59,859] INFO: >>> Disparando execução agendada do worker ML PS Volume
+[2026-04-13 04:30:59,859] INFO: ============================================================
+[2026-04-13 04:30:59,859] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-13 04:30:59,860] INFO: ============================================================
+[2026-04-13 04:30:59,860] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-13 04:30:59,866] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-13 04:30:59,932] INFO:   Histórico: 1001 dias recebidos
+[2026-04-13 04:30:59,933] INFO: Buscando clima FORECAST de 2026-04-13 a 2026-04-19...
+[2026-04-13 04:30:59,944] INFO: Modelo registry id: 1
+[2026-04-13 04:30:59,945] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-13 04:31:00,122] INFO: Histórico carregado: 1001 dias (2023-07-17 a 2026-04-12)
+[2026-04-13 04:31:00,124] INFO: Buscando clima HISTÓRICO de 2023-07-17 a 2026-04-12...
+[2026-04-13 04:31:01,044] INFO:   Forecast: 7 dias recebidos
+[2026-04-13 04:31:01,049] INFO: Clima total combinado: 1008 dias (2023-07-17 a 2026-04-19)
+[2026-04-13 04:31:01,076] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-13 04:31:01,087] INFO: 7 predições gravadas/atualizadas
+[2026-04-13 04:31:01,087] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-13 04:31:01,176] INFO: 3 predições atualizadas com valor realizado
+[2026-04-13 04:31:01,177] INFO: ============================================================
+[2026-04-13 04:31:01,178] INFO: WORKER FINALIZADO — duração: 6.7s
+[2026-04-13 04:31:01,179] INFO: ============================================================
+[2026-04-13 04:31:01,179] INFO: >>> Execução agendada concluída com sucesso
+[2026-04-13 04:31:01,675] INFO:   Histórico: 1001 dias recebidos
+[2026-04-13 04:31:01,676] INFO: Buscando clima FORECAST de 2026-04-13 a 2026-04-19...
+[2026-04-13 04:31:02,666] INFO:   Forecast: 7 dias recebidos
+[2026-04-13 04:31:02,670] INFO: Clima total combinado: 1008 dias (2023-07-17 a 2026-04-19)
+[2026-04-13 04:31:02,704] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-13 04:31:02,715] ERROR: ERRO FATAL: UniqueViolation: duplicate key value violates unique constraint "uk_predicao_alvo_horizonte_modelo"
+DETAIL:  Key (dt_alvo, horizonte_dias, modelo_id)=(2026-04-13, 1, 1) already exists.
+Traceback (most recent call last):
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 357, in main
+    df_completo.index.min().date(),
+  File "C:\ml_workspace\workers\ml_ps_volume_worker.py", line 250, in gravar_predicoes
+    INSERT INTO public.ml_ps_predicoes (
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uk_predicao_alvo_horizonte_modelo"
+DETAIL:  Key (dt_alvo, horizonte_dias, modelo_id)=(2026-04-13, 1, 1) already exists.
+
+[2026-04-13 04:31:02,716] ERROR: >>> Worker terminou com SystemExit: 1
+[2026-04-13 08:50:50,580] INFO: Serviço interrompido manualmente (Ctrl+C)
+[2026-04-13 08:51:01,238] INFO: ============================================================
+[2026-04-13 08:51:01,239] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-13 08:51:01,239] INFO: ============================================================
+[2026-04-13 08:51:01,239] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-13 08:51:03,069] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-13 08:51:03,146] INFO: Modelo registry id: 1
+[2026-04-13 08:51:03,146] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-13 08:51:03,397] INFO: Histórico carregado: 1001 dias (2023-07-17 a 2026-04-12)
+[2026-04-13 08:51:03,401] INFO: Buscando clima HISTÓRICO de 2023-07-17 a 2026-04-12...
+[2026-04-13 08:51:05,068] INFO:   Histórico: 1001 dias recebidos
+[2026-04-13 08:51:05,069] INFO: Buscando clima FORECAST de 2026-04-13 a 2026-04-19...
+[2026-04-13 08:51:06,021] INFO:   Forecast: 7 dias recebidos
+[2026-04-13 08:51:06,026] INFO: Clima total combinado: 1008 dias (2023-07-17 a 2026-04-19)
+[2026-04-13 08:51:06,213] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-13 08:51:06,228] INFO: 7 predições gravadas/atualizadas
+[2026-04-13 08:51:06,228] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-13 08:51:06,233] INFO: 0 predições atualizadas com valor realizado
+[2026-04-13 08:51:06,234] INFO: ============================================================
+[2026-04-13 08:51:06,234] INFO: WORKER FINALIZADO — duração: 5.0s
+[2026-04-13 08:51:06,235] INFO: ============================================================
+[2026-04-13 08:51:11,718] INFO: ============================================================
+[2026-04-13 08:51:11,718] INFO: ML PS VOLUME SERVICE — INÍCIO
+[2026-04-13 08:51:11,720] INFO: Agendamento: diariamente às 04:30
+[2026-04-13 08:51:11,720] INFO: ============================================================
+[2026-04-13 08:51:11,721] INFO: Próxima execução agendada: 2026-04-14 04:30:00
+[2026-04-13 08:54:10,353] INFO: Serviço interrompido manualmente (Ctrl+C)
+[2026-04-13 08:54:16,081] INFO: ============================================================
+[2026-04-13 08:54:16,082] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-13 08:54:16,083] INFO: ============================================================
+[2026-04-13 08:54:16,083] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-13 08:54:17,645] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-13 08:54:17,715] INFO: Modelo registry id: 1
+[2026-04-13 08:54:17,715] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-13 08:54:17,960] INFO: Histórico carregado: 1000 dias (2023-07-18 a 2026-04-12)
+[2026-04-13 08:54:17,962] INFO: Buscando clima HISTÓRICO de 2023-07-18 a 2026-04-12...
+[2026-04-13 08:54:21,417] INFO:   Histórico: 1000 dias recebidos
+[2026-04-13 08:54:21,418] INFO: Buscando clima FORECAST de 2026-04-13 a 2026-04-19...
+[2026-04-13 08:54:22,352] INFO:   Forecast: 7 dias recebidos
+[2026-04-13 08:54:22,359] INFO: Clima total combinado: 1007 dias (2023-07-18 a 2026-04-19)
+[2026-04-13 08:54:22,527] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-13 08:54:22,537] INFO: 7 predições gravadas/atualizadas
+[2026-04-13 08:54:22,538] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-13 08:54:22,560] INFO: 0 predições atualizadas com valor realizado
+[2026-04-13 08:54:22,561] INFO: ============================================================
+[2026-04-13 08:54:22,562] INFO: WORKER FINALIZADO — duração: 6.5s
+[2026-04-13 08:54:22,563] INFO: ============================================================
+[2026-04-13 08:55:51,153] INFO: ============================================================
+[2026-04-13 08:55:51,154] INFO: ML PS VOLUME SERVICE — INÍCIO
+[2026-04-13 08:55:51,154] INFO: Agendamento: diariamente às 04:30
+[2026-04-13 08:55:51,155] INFO: ============================================================
+[2026-04-13 08:55:51,155] INFO: Próxima execução agendada: 2026-04-14 04:30:00
+[2026-04-13 13:36:12,125] INFO: Serviço interrompido manualmente (Ctrl+C)
+[2026-04-13 13:36:22,124] INFO: ============================================================
+[2026-04-13 13:36:22,124] INFO: WORKER ML PS VOLUME — INÍCIO
+[2026-04-13 13:36:22,126] INFO: ============================================================
+[2026-04-13 13:36:22,126] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v1.pkl
+[2026-04-13 13:36:24,607] INFO: Modelo carregado: ps_volume_v1 (v1.0)
+[2026-04-13 13:36:24,686] INFO: Modelo registry id: 1
+[2026-04-13 13:36:24,686] INFO: Buscando histórico de chegadas no PostgreSQL...
+[2026-04-13 13:36:24,992] INFO: Histórico carregado: 1000 dias (2023-07-18 a 2026-04-12)
+[2026-04-13 13:36:24,995] INFO: Buscando clima HISTÓRICO de 2023-07-18 a 2026-04-12...
+[2026-04-13 13:36:29,220] INFO:   Histórico: 1000 dias recebidos
+[2026-04-13 13:36:29,220] INFO: Buscando clima FORECAST de 2026-04-13 a 2026-04-19...
+[2026-04-13 13:36:30,336] INFO:   Forecast: 7 dias recebidos
+[2026-04-13 13:36:30,342] INFO: Clima total combinado: 1007 dias (2023-07-18 a 2026-04-19)
+[2026-04-13 13:36:30,765] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-13 13:36:30,785] INFO: 7 predições gravadas/atualizadas
+[2026-04-13 13:36:30,785] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-13 13:36:30,791] INFO: 0 predições atualizadas com valor realizado
+[2026-04-13 13:36:30,791] INFO: ============================================================
+[2026-04-13 13:36:30,792] INFO: WORKER FINALIZADO — duração: 8.7s
+[2026-04-13 13:36:30,792] INFO: ============================================================
+[2026-04-13 13:36:37,450] INFO: ============================================================
+[2026-04-13 13:36:37,450] INFO: ML PS VOLUME SERVICE — INÍCIO
+[2026-04-13 13:36:37,452] INFO: Agendamento: diariamente às 04:30
+[2026-04-13 13:36:37,452] INFO: ============================================================
+[2026-04-13 13:36:37,453] INFO: Próxima execução agendada: 2026-04-14 04:30:00
+[2026-04-13 16:23:24,364] INFO: Serviço interrompido manualmente (Ctrl+C)
+[2026-04-13 16:23:43,516] INFO: ============================================================
+[2026-04-13 16:23:43,516] INFO: WORKER ML PS VOLUME v2.0 — INÍCIO
+[2026-04-13 16:23:43,516] INFO: ============================================================
+[2026-04-13 16:23:43,518] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v2.pkl
+[2026-04-13 16:23:45,170] INFO: Modelo carregado: ps_volume_v2 (v2.0)
+[2026-04-13 16:23:45,241] INFO: Modelo registry id: 2
+[2026-04-13 16:23:45,241] INFO: Buscando histórico de chegadas no PostgreSQL (excluindo Cardiologia)...
+[2026-04-13 16:23:45,575] INFO: Histórico carregado: 1000 dias (2023-07-18 a 2026-04-12)
+[2026-04-13 16:23:45,577] INFO: Buscando clima HISTÓRICO de 2023-07-18 a 2026-04-12...
+[2026-04-13 16:23:50,475] INFO:   Histórico: 1000 dias recebidos
+[2026-04-13 16:23:50,476] INFO: Buscando clima FORECAST de 2026-04-13 a 2026-04-19...
+[2026-04-13 16:23:51,600] INFO:   Forecast: 7 dias recebidos
+[2026-04-13 16:23:51,606] INFO: Clima total combinado: 1007 dias (2023-07-18 a 2026-04-19)
+[2026-04-13 16:23:51,843] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-13 16:23:51,861] INFO: 7 predições gravadas/atualizadas
+[2026-04-13 16:23:51,862] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-13 16:23:51,867] INFO: 0 predições atualizadas com valor realizado
+[2026-04-13 16:23:51,868] INFO: ============================================================
+[2026-04-13 16:23:51,868] INFO: WORKER FINALIZADO — duração: 8.4s
+[2026-04-13 16:23:51,870] INFO: ============================================================
+[2026-04-13 22:31:47,608] INFO: Serviço interrompido manualmente (Ctrl+C)
