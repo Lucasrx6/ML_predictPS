@@ -462,3 +462,63 @@ DETAIL:  Key (dt_alvo, horizonte_dias, modelo_id)=(2026-04-13, 1, 1) already exi
 [2026-04-14 08:42:06,188] INFO: ============================================================
 [2026-04-14 08:42:06,189] INFO: WORKER FINALIZADO — duração: 5.2s
 [2026-04-14 08:42:06,190] INFO: ============================================================
+[2026-04-15 17:36:32,381] INFO: ============================================================
+[2026-04-15 17:36:32,381] INFO: WORKER ML PS VOLUME v2.0 — INÍCIO
+[2026-04-15 17:36:32,384] INFO: ============================================================
+[2026-04-15 17:36:32,385] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v2.pkl
+[2026-04-15 17:36:34,186] INFO: Modelo carregado: ps_volume_v2 (v2.0)
+[2026-04-15 17:36:34,269] INFO: Modelo registry id: 2
+[2026-04-15 17:36:34,270] INFO: Buscando histórico de chegadas no PostgreSQL (excluindo Cardiologia)...
+[2026-04-15 17:36:34,668] INFO: Histórico carregado: 1000 dias (2023-07-20 a 2026-04-14)
+[2026-04-15 17:36:34,671] INFO: Buscando clima HISTÓRICO de 2023-07-20 a 2026-04-14...
+[2026-04-15 17:36:37,531] INFO:   Histórico: 1000 dias recebidos
+[2026-04-15 17:36:37,532] INFO: Buscando clima FORECAST de 2026-04-15 a 2026-04-21...
+[2026-04-15 17:36:38,609] INFO:   Forecast: 7 dias recebidos
+[2026-04-15 17:36:38,614] INFO: Clima total combinado: 1007 dias (2023-07-20 a 2026-04-21)
+[2026-04-15 17:36:38,793] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-15 17:36:38,803] INFO: 7 predições gravadas/atualizadas
+[2026-04-15 17:36:38,803] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-15 17:36:38,983] INFO: 6 predições atualizadas com valor realizado
+[2026-04-15 17:36:38,983] INFO: ============================================================
+[2026-04-15 17:36:38,984] INFO: WORKER FINALIZADO — duração: 6.6s
+[2026-04-15 17:36:38,985] INFO: ============================================================
+[2026-04-15 20:57:48,889] INFO: ============================================================
+[2026-04-15 20:57:48,889] INFO: WORKER ML PS VOLUME v2.0 — INÍCIO
+[2026-04-15 20:57:48,892] INFO: ============================================================
+[2026-04-15 20:57:48,893] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v2.pkl
+[2026-04-15 20:57:51,236] INFO: Modelo carregado: ps_volume_v2 (v2.0)
+[2026-04-15 20:57:51,313] INFO: Modelo registry id: 2
+[2026-04-15 20:57:51,314] INFO: Buscando histórico de chegadas no PostgreSQL (excluindo Cardiologia)...
+[2026-04-15 20:57:51,689] INFO: Histórico carregado: 1000 dias (2023-07-20 a 2026-04-14)
+[2026-04-15 20:57:51,691] INFO: Buscando clima HISTÓRICO de 2023-07-20 a 2026-04-14...
+[2026-04-15 20:57:53,199] INFO:   Histórico: 1000 dias recebidos
+[2026-04-15 20:57:53,199] INFO: Buscando clima FORECAST de 2026-04-15 a 2026-04-21...
+[2026-04-15 20:57:54,279] INFO:   Forecast: 7 dias recebidos
+[2026-04-15 20:57:54,284] INFO: Clima total combinado: 1007 dias (2023-07-20 a 2026-04-21)
+[2026-04-15 20:57:54,478] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-15 20:57:54,494] INFO: 7 predições gravadas/atualizadas
+[2026-04-15 20:57:54,495] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-15 20:57:54,501] INFO: 0 predições atualizadas com valor realizado
+[2026-04-15 20:57:54,501] INFO: ============================================================
+[2026-04-15 20:57:54,502] INFO: WORKER FINALIZADO — duração: 5.6s
+[2026-04-15 20:57:54,504] INFO: ============================================================
+[2026-04-16 10:21:14,467] INFO: ============================================================
+[2026-04-16 10:21:14,468] INFO: WORKER ML PS VOLUME v2.0 — INÍCIO
+[2026-04-16 10:21:14,471] INFO: ============================================================
+[2026-04-16 10:21:14,473] INFO: Carregando modelo: C:\ml_workspace\models\ps_volume_v2.pkl
+[2026-04-16 10:21:16,397] INFO: Modelo carregado: ps_volume_v2 (v2.0)
+[2026-04-16 10:21:16,484] INFO: Modelo registry id: 2
+[2026-04-16 10:21:16,484] INFO: Buscando histórico de chegadas no PostgreSQL (excluindo Cardiologia)...
+[2026-04-16 10:21:17,228] INFO: Histórico carregado: 1000 dias (2023-07-21 a 2026-04-15)
+[2026-04-16 10:21:17,231] INFO: Buscando clima HISTÓRICO de 2023-07-21 a 2026-04-15...
+[2026-04-16 10:21:18,967] INFO:   Histórico: 1000 dias recebidos
+[2026-04-16 10:21:18,968] INFO: Buscando clima FORECAST de 2026-04-16 a 2026-04-22...
+[2026-04-16 10:21:20,215] INFO:   Forecast: 7 dias recebidos
+[2026-04-16 10:21:20,222] INFO: Clima total combinado: 1007 dias (2023-07-21 a 2026-04-22)
+[2026-04-16 10:21:20,417] INFO: Geradas 7 predições para os próximos 7 dias
+[2026-04-16 10:21:20,428] INFO: 7 predições gravadas/atualizadas
+[2026-04-16 10:21:20,428] INFO: Atualizando valores realizados das predições antigas...
+[2026-04-16 10:21:20,630] INFO: 7 predições atualizadas com valor realizado
+[2026-04-16 10:21:20,631] INFO: ============================================================
+[2026-04-16 10:21:20,632] INFO: WORKER FINALIZADO — duração: 6.2s
+[2026-04-16 10:21:20,633] INFO: ============================================================
